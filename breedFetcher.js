@@ -2,18 +2,19 @@ const request = require('request');
 
 const fetchBreedDescription = (breedName, callback) => {
 	request(
-		`https://api.thecatapi.com/v1/breeds/search?q=${breedName[0]}`,
+		`https://api.thecatapi.com/v1/breeds/search?q=${breedName}`,
 		(error, response, body) => {
 			// handle request error
 			if (error) {
-				callback(error, null);
+				callback(error, null); // am i returning the value of error and this request function is over?
 			}
 
 			const data = JSON.parse(body);
 
 			// if requested breed not found
 			if (data[0] && data[0].description) {
-				callback(null, data[0].description);
+				console.log(data[0].description);
+				callback(null, data[0].description.trim());
 			} else {
 				callback(error, null);
 			}
