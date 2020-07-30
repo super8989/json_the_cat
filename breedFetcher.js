@@ -3,7 +3,7 @@ const args = process.argv.slice(2);
 searchParam = args[0].substring(0, 4);
 
 request(
-	`https://api.thecatapi.co,/v1/breeds/search?q=${searchParam}`,
+	`https://api.thecatapi.com/v1/breeds/search?q=${searchParam}`,
 	(error, response, body) => {
 		// handle request error
 		if (error) {
@@ -21,6 +21,8 @@ request(
 		}
 	}
 );
+
+console.log('continued...');
 
 // > node breedFetcher.js Chartreux
 // The Chartreux is generally silent but communicative. Sh...
